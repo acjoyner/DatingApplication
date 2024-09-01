@@ -138,3 +138,4 @@
 /Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/bin/Debug/net8.0/AutoMapper.dll
 /Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/bin/Debug/net8.0/CloudinaryDotNet.dll
 /Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/obj/Debug/net8.0/API.sourcelink.json
