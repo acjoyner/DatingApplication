@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
@@ -27,7 +28,7 @@ IMapper mapper) : BaseApiController
         var sender = await userRepository.GetUserByUsernameAsync(username);
         var recipient = await userRepository.GetUserByUsernameAsync(createMessageDto.RecipientUsername);
 
-        if (recipient == null || sender == null) return BadRequest("Cannot send message at this time.");
+        if (recipient == null || sender == null || sender.UserName == null || recipient.UserName == null) return BadRequest("Cannot send message at this time.");
 
         var message = new Message
         {
@@ -72,19 +73,19 @@ IMapper mapper) : BaseApiController
 
         if (message == null) return BadRequest("Cannot delete this message");
 
-        if(message.SenderUsername != username && message.RecipientUsername != username) 
+        if (message.SenderUsername != username && message.RecipientUsername != username)
 
-        return Forbid();
+            return Forbid();
 
-        if(message.SenderUsername == username) message.SenderDeleted = true;
-        if(message.RecipientUsername == username) message.RecipientDeleted = true;
+        if (message.SenderUsername == username) message.SenderDeleted = true;
+        if (message.RecipientUsername == username) message.RecipientDeleted = true;
 
-        if(message is {SenderDeleted: true, RecipientDeleted: true})
+        if (message is { SenderDeleted: true, RecipientDeleted: true })
         {
             messageRepository.DeleteMessage(message);
         }
 
-        if( await messageRepository.SaveAllAsync()) return Ok();
+        if (await messageRepository.SaveAllAsync()) return Ok();
 
         return BadRequest("Problem deleting the messge.");
     }

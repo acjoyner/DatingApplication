@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers
 {
 
-    [Authorize]
+
     public class UsersController(IUserRepository userRepository, IMapper mapper,
     IPhotoService photoService) : BaseApiController
     {
@@ -28,8 +28,9 @@ namespace API.Controllers
 
             return Ok(users);
         }
+
         [HttpGet("{username}")] // api/users/1
-        public async Task<ActionResult<MemberDto>> GetUsers(string username)
+        public async Task<ActionResult<MemberDto>> GetUser(string username)
         {
             var user = await userRepository.GetMemberAsync(username);
 
