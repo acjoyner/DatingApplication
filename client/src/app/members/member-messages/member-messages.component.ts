@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit, output, ViewChild } from '@angular/core';
+import { Component, inject, input, OnInit, ViewChild } from '@angular/core';
 import { Message } from '../../_models/message';
 import { MessageService } from '../../_services/message.service';
 import { TimeagoModule } from 'ngx-timeago';
@@ -13,33 +13,27 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class MemberMessagesComponent implements OnInit {
   @ViewChild('messageForm') messageFrom?: NgForm;
-  private messageService = inject(MessageService);
+  messageService = inject(MessageService);
   username = input.required<string>();
-  //messages = input.required<Message[]>();
+
   messages: Message[] = [];
   messageContent = '';
-  updateMessges = output<Message>();
-
 
   ngOnInit(): void {
-   
     this.loadMessages();
   }
 
-  loadMessages(){
+  loadMessages() {
     this.messageService.getMessageThread(this.username()).subscribe({
-      next: messages => this.messages = messages
-    })
+      next: (messages) => (this.messages = messages),
+    });
   }
 
-  sendMessage(){
-    this.messageService.sendMessage(this.username(), this.messageContent).subscribe({
-      next: message => {
-        this.updateMessges.emit(message);
+  sendMessage() {
+    this.messageService
+      .sendMessage(this.username(), this.messageContent)
+      .then(() => {
         this.messageFrom?.reset();
-      }
-    })
+      });
   }
-
-
 }
