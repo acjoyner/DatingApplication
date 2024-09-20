@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    public class LikesController(ILikesRepository likesRepository):BaseApiController
+    public class LikesController(IUnitOfWork unitOfWork):BaseApiController
     {
         [HttpPost("{targetUserId:int}")]
         public async Task<ActionResult> Togglelike(int targetUserId)
@@ -20,7 +20,7 @@ namespace API.Controllers
 
             if(SourceUserId == targetUserId) return BadRequest("You cannot like yourself");
 
-            var existingLike = await likesRepository.GetUserLike(SourceUserId, targetUserId);
+            var existingLike = await unitOfWork.LikesRepository.GetUserLike(SourceUserId, targetUserId);
 
             if(existingLike == null)
             {
@@ -29,27 +29,27 @@ namespace API.Controllers
                     TargetUserId = targetUserId
                 };
 
-                likesRepository.AddLike(like);
+                unitOfWork.LikesRepository.AddLike(like);
             }
             else 
             {
-                likesRepository.DeleteLike(existingLike);
+                unitOfWork.LikesRepository.DeleteLike(existingLike);
             }
 
-            if(await likesRepository.SaveChanges()) return Ok();
+            if(await unitOfWork.Complete()) return Ok();
 
             return BadRequest("Failed to update like.");
         }
         [HttpGet("list")]
         public async Task<ActionResult<IEnumerable<int>>> GetCurrentUserLikesIds()
         {
-            return Ok(await likesRepository.GetCurrentUserLikesIds(User.GetUserId()));
+            return Ok(await unitOfWork.LikesRepository.GetCurrentUserLikesIds(User.GetUserId()));
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MemberDto>>> GetUserLikes([FromQuery]LikesParams likesParams)
         {
             likesParams.UserId = User.GetUserId();
-            var users = await likesRepository.GetUserLikes(likesParams);
+            var users = await unitOfWork.LikesRepository.GetUserLikes(likesParams);
             Response.AddPaginationHeader(users);
 
             return Ok(users);

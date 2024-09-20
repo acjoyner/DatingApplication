@@ -1,0 +1,65 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/wwwroot/3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets/3rdpartylicenses.txt"
+    },
+    {
+      "Id": "/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/wwwroot/main-6HGF66MA.js",
+      "PackagePath": "staticwebassets/main-6HGF66MA.js"
+    },
+    {
+      "Id": "/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/wwwroot/media/fontawesome-webfont-3KIJVIEY.svg",
+      "PackagePath": "staticwebassets/media/fontawesome-webfont-3KIJVIEY.svg"
+    },
+    {
+      "Id": "/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/wwwroot/media/fontawesome-webfont-5GKVPAEF.woff2",
+      "PackagePath": "staticwebassets/media/fontawesome-webfont-5GKVPAEF.woff2"
+    },
+    {
+      "Id": "/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/wwwroot/media/fontawesome-webfont-FMJ3VJ65.eot",
+      "PackagePath": "staticwebassets/media/fontawesome-webfont-FMJ3VJ65.eot"
+    },
+    {
+      "Id": "/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/wwwroot/media/fontawesome-webfont-RJ6LE7IU.ttf",
+      "PackagePath": "staticwebassets/media/fontawesome-webfont-RJ6LE7IU.ttf"
+    },
+    {
+      "Id": "/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/wwwroot/media/fontawesome-webfont-Z4ARLA73.woff",
+      "PackagePath": "staticwebassets/media/fontawesome-webfont-Z4ARLA73.woff"
+    },
+    {
+      "Id": "/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/wwwroot/polyfills-SCHOHYNV.js",
+      "PackagePath": "staticwebassets/polyfills-SCHOHYNV.js"
+    },
+    {
+      "Id": "/Users/anthonyjoyner/Documents/Documents - MacBook Pro/Projects/DatingApplication/API/wwwroot/styles-KO66C6UD.css",
+      "PackagePath": "staticwebassets/styles-KO66C6UD.css"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.build.API.props",
+      "PackagePath": "build\\API.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildMultiTargeting.API.props",
+      "PackagePath": "buildMultiTargeting\\API.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildTransitive.API.props",
+      "PackagePath": "buildTransitive\\API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
